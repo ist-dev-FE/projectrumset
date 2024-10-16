@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PPTQ Rumah SETIA</title>
+    <link rel="icon" href="setia.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.cssrel rel=”stylesheet” integrity=”sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH” crossorigin=”anonymous”>
+    <style>
+      .expandable-button {
+          position: relative;
+          width: 200px;
+          height: 50px;
+          background-color: rgb(rgb(230, 216, 216), rgb(234, 240, 234), rgb(94, 94, 201));
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          overflow: hidden;
+          transition: width 0.4s, height 0.4s;
+      }
+      .expanded {
+          width: 100%;
+          height: 300px;
+      }
+
+      .button-content {
+          display: none;
+          padding: 20px;
+          text-align: left;
+      }
+
+      .expandable-button.expanded .button-content {
+          display: block;
+      }
+
+      .hamburger {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          display: block;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+      }
+
+      .hamburger div {
+          width: 100%;
+          height: 4px;
+          background-color: white;
+          margin: 5px 0;
+          transition: transform 0.4s;
+      }
+
+      .hamburger.cross div:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.cross div:nth-child(2) {
+          opacity: 0;
+      }
+
+      .hamburger.cross div:nth-child(3) {
+          transform: rotate(-45deg) translate(5px, -5px);
+      }
+  </style>
+  </head>
+  <body>
+    <!--header-->
+    <img src="header.png" class="img-fluid">
+    <!--Navbar navigasi-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <a class="navbar-brand" href="#">
+      <img src="setia.png" alt="Logo" width="50" height="40" class="d-inline-block align-text-top">
+      Rumah SETIA
+    </a>
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rumah SETIA</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active text-dark" aria-current="page" href="Landing.html">Home</a>
+          </li>
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle text-dark" href="profil.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profil
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="yayasan.html">Sejarah Yayasan</a></li>
+              <li><a class="dropdown-item" href="pendidikan.html">Unit Pendidikan</a></li>
+              <li><a class="dropdown-item" href="tahfidz.html">Unit Tahfidz</a></li>
+        </ul>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="berita.html">Kabar Pondok</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-dark" aria-current="page" href="kajian.html">Kajian</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="artikel.html">Artikel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="poster.html">Poster</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="galeri.html">Galeri</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="kontak.html">Kontak</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-dark" aria-current="page" href="infopsb.html">Info PSB</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="setiapeduli.html">SETIA Peduli</a>
+          </li>
+      </div>
+    </div>
+    </div>
+  </nav><br>
+  <div class="container">
+    <div class="container-fluid">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="Landing.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Unit Tahfidz</li>
+        </ol>
+      </nav>
+      <div class="container mt-5">
+        <button class="expandable-button " id="expandableButton"><h3 class="pe-5 text-dark">Daftar Isi</h3>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="button-content">
+            <ul>
+              <li><a class="text-dark" href="#tahfidz">1.PROSES PEMBELAJARAN TAHFIZHUL QUR’AN
+              </a></li>
+              <li><a class="text-dark" href="#target">2.METODE TAHFIZH
+              </a></li>
+              <li><a class="text-dark" href="#progam">3.PROGAM</a>
+              </li>
+              <li><a class="text-dark" href="#standar">3.TARGET</a>
+              </li>
+            </ul>
+           </div>
+        </button>
+        <h3 id="tahfidz" class="pt-3">A. PROSES PEMBELAJARAN TAHFIZHUL QUR’AN</h3>
+        <h5 class="text-center">METODE TAHSIN/TAJWID</h5>
+        <p>Proses untuk menyempurnakan semua hal yang berkaitan dengan kesempurnaan pengucapan huruf-huruf Al-Qur’an dan aspek sifat-sifatnya yang senantiasa melekat padanya serta menyempurnakan pengucapan hukum hubungan antara satu huruf dengan yang lainnya seperti izhar, idgham, ikhfa, dan sebagainya. Program tahsin dilaksanakan selama tiga bulan pertama (santri baru). Metode tahsin menggunakan sistem talaqqi, yaitu setiap santri mentasmi’kan bacaan bin nazhar kepada musyrifah halaqoh masing-masing, kemudian musyrifah akan menegur dan membimbing jika ada kesalahan.</p>
+        <ul>
+            <li><strong>Teori</strong>: Materi tahsin/tajwid diberikan secara intensif melalui pembelajaran di dalam kelas atau halaqoh.</li>
+            <li><strong>Praktik</strong>: Materi tahsin/tajwid yang sudah didapatkan di dalam kelas langsung dipraktikkan di halaqoh Al-Qur’an dengan membaca bin nazhor di hadapan musyrifah sebanyak 2 juz.</li>
+        </ul>
+        <p>Selain itu, santri baru juga diwajibkan untuk mengkhatamkan membaca Al-Qur’an sesuai dengan kaidah tahsin/tajwid sebanyak 10 kali untuk membiasakan mereka berinteraksi dengan Al-Qur’an sebelum mulai menghafal Al-Qur’an.</p>
+        <p>Program tahsin/tajwid ini dilaksanakan selama 3 bulan pertama santri baru.</p>
+    
+        <h3 id="target">B. METODE TAHFIZH</h3>
+        <h5>a. Alokasi Waktu Tahfizh</h5>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Waktu</th>
+                    <th>Jam</th>
+                    <th>Kegiatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ba’da Subuh</td>
+                    <td>05.00 – 06.00</td>
+                    <td>Murojaah hafalan yang pernah diujikan</td>
+                </tr>
+                <tr>
+                    <td>Waktu Dhuha</td>
+                    <td>07.30 – 09.30</td>
+                    <td>Ziyadah hafalan</td>
+                </tr>
+                <tr>
+                    <td>Ba’da Dzuhur</td>
+                    <td>12.30 – 13.30</td>
+                    <td>Murojaah hafalan baru (tingkat ulya)</td>
+                </tr>
+                <tr>
+                    <td>Ba’da Ashar</td>
+                    <td>15.30 – 16.30</td>
+                    <td>Murojaah hafalan baru (tingkat wustho)</td>
+                </tr>
+                <tr>
+                    <td>Ba’da Isya</td>
+                    <td>19.30 – 20.00</td>
+                    <td>Murojaah dengan teman</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5 class="text-center">TATA TERTIB HALAQOH</h5>  
+        <h4>Aturan</h4>
+        <ol>
+            <li>Niat ikhlas Libtighooi mardlotillah.</li>
+            <li>Berwudhu dan bersiwak sebelum setoran.</li>
+            <li>Memakai pakaian resmi (gamis dan jilbab) dan memakai kaos kaki.</li>
+            <li>Datang ke tempat halaqoh tepat waktu.</li>
+            <li>Berada di halaqoh tahfizh sampai waktu berakhir.</li>
+            <li>Setoran kepada musyrifah yang telah ditentukan tepat pada waktunya.</li>
+            <li>Hafalan ziadah sudah dipersiapkan di malam hari atau di sela-sela waktu kosong.</li>
+            <li>Mengikuti kegiatan murojaah bersama teman setiap ba’da isya.</li>
+            <li>Santri baru wajib mengikuti pembelajaran tahsin dan tajwid selama 3 bulan.</li>
+            <li>Bertindak sopan, hormat, dan patuh kepada Musyrifah.</li>
+            <li>Mentaati seluruh program dan tata tertib tahfizhul Qur’an.</li>
+            <li>Santri baru tidak boleh menambah hafalan sebelum mengkhatamkan bacaan sebanyak 10 kali.</li>
+        </ol>
+    
+        <h4>Larangan</h4>
+        <ol>
+            <li>Meninggalkan halaqoh tahfizh dan tidak setoran tanpa izin dan tanpa alasan yang syar’i.</li>
+            <li>Membuat suasana gaduh selama halaqoh tahfizh berlangsung.</li>
+            <li>Meletakkan mushaf Al-Qur’an di sembarang tempat.</li>
+            <li>Melanggar ketentuan-ketentuan yang tertera di atas.</li>
+            <li>Pindah halaqoh tanpa izin.</li>
+            <li>Setoran dengan Musyrifah lain tanpa rekomendasi dari Musyrifahnya.</li>
+        </ol>
+    
+        <h5 class="text-center mb-4" id="progam">Metode Tasmi’ / Setoran Hafalan</h5>
+    
+        <h4>Tasmi’ / Setoran Hafalan Baru</h4>
+        <p><strong>Ketentuan Ziyadah hafalan baru:</strong></p>
+        <ol>
+            <li>Syarat wajib santri boleh ziyadah yaitu khatam membaca Al-Qur’an sebanyak 10 kali secara benar, jujur dan mandiri serta telah membaca bin nazhor di hadapan Musyrifah sebanyak 2 juz.</li>
+            <li>Setoran ziyadah dilaksanakan 6 hari dalam satu pekan terhitung dari hari Senin sampai Sabtu.</li>
+            <li>Setoran ziyadah minimal per hari setengah halaman.</li>
+            <li><strong>Urutan menghafal Al-Qur’an:</strong>
+                <ul>
+                    <li>Juz 30 ke Juz 26</li>
+                    <li>Juz 1 ke Juz 10</li>
+                    <li>Juz 21 ke Juz 25</li>
+                    <li>Juz 11 ke Juz 20</li>
+                </ul>
+            </li>
+            <li>Setiap ziyadah mencapai 1 juz, santri wajib mengulang dan menyetorkan hafalannya minimal 3 kali kepada musyrifahnya dan menyetorkan kepada penguji tahfizhnya sampai dinyatakan lulus untuk melanjutkan juz setelahnya.</li>
+            <li>Musyrifah berhak menolak atau meminta mengulang hafalan santri jika hafalannya belum lancar.</li>
+        </ol>
+        <h4>Tasmi' / Setoran Hafalan Lama</h4>
+<p><strong>Ketentuan Murojaah hafalan lama:</strong></p>
+<ol>
+    <li>Murojaah dilaksanakan setiap ba’da subuh dengan disetorkan kepada musyrifah dan ba’da isya’ kepada teman, adapun waktu kelas Qur’an untuk murojaah hafalan pada juz yang sama dengan hafalan baru.</li>
+    <li>Setiap santri wajib murojaah hafalan lamanya minimal sehari seperempat juz.</li>
+    <li>Santri yang sudah mendapatkan hafalan mutqin sebanyak 5 juz wajib menyetorkannya di hadapan musyrifah sekali duduk sebelum melanjutkan ke juz berikutnya.</li>
+</ol>
+<h4>Rangkaian Tahapan Pembelajaran Tahfizh</h4>
+<ol>
+    <li>Ketika sudah masuk waktu tahfizh semua santri wajib sudah berada di halaqoh tahfizh dalam keadaan suci dan berpakaian rapi.</li>
+    <li>Musyrifah membuka halaqoh tahfizh dan berdoa, apabila musyrifah belum datang maka santri tetap memulai halaqoh dan berdoa.</li>
+    <li>Santri maju kepada musyrifah dan menyetorkan hafalan baru / murojaah.</li>
+    <li>Musyrifah menyimak serta mencatat lafadz atau huruf yang tidak sesuai dengan kaidah tahsin / tajwid dan memberi garis atau bulatan pada lafadz yang salah.</li>
+    <li>Setelah selesai, musyrifah mencatat dan memberi nilai di buku mutaba’ah hafalan santri.</li>
+    <li>Ketika waktu tahfizh selesai, musyrifah memberikan beberapa nasehat atau motivasi kepada santri dan menutup halaqoh dengan berdoa.</li>
+</ol>
+<h3 id="standar">C. STANDAR PENCAPAIAN DAN PENILAIAN TAHFIZH</h3>
+<h5>1. STANDAR PENCAPAIAN ZIYADAH DAN MUTQIN</h5>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th rowspan="2" class="text-center align-middle">Kelas</th>
+      <th colspan="2" class="text-center">Jumlah Ziyadah</th>
+      <th colspan="2" class="text-center">Jumlah Mutqin</th>
+    </tr>
+    <tr>
+      <th class="text-center">Semester 1</th>
+      <th class="text-center">Semester II</th>
+      <th class="text-center">Semester 1</th>
+      <th class="text-center">Semester II</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-center">1 juz</td>
+      <td class="text-center">5 juz</td>
+      <td class="text-center">1 juz</td>
+      <td class="text-center">5 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-center">8.5 juz</td>
+      <td class="text-center">12 juz</td>
+      <td class="text-center">7.5 juz</td>
+      <td class="text-center">10 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-center">16 juz</td>
+      <td class="text-center">20 juz</td>
+      <td class="text-center">12.5 juz</td>
+      <td class="text-center">15 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-center">20 juz</td>
+      <td class="text-center">22 juz</td>
+      <td class="text-center">17.5 juz</td>
+      <td class="text-center">20 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-center">24 juz</td>
+      <td class="text-center">26 juz</td>
+      <td class="text-center">22.5 juz</td>
+      <td class="text-center">25 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-center">28 juz</td>
+      <td class="text-center">30 juz</td>
+      <td class="text-center">27.5 juz</td>
+      <td class="text-center">30 juz</td>
+    </tr>
+    <tr>
+      <td class="text-center">Takhasus</td>
+      <td class="text-center">15 juz</td>
+      <td class="text-center">30 juz</td>
+      <td class="text-center">8 juz</td>
+      <td class="text-center">15 juz</td>
+    </tr>
+  </tbody>
+</table>
+<h4>2. Standar Penilaian Raport Tahfizh dan Kenaikan Kelas</h4>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Dasar Penilaian</th>
+      <th>Nilai</th>
+      <th>Kriteria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="5" class="text-center align-middle">Pencapaian Mutqin dan Ziyadah</td>
+      <td class="text-center">A+</td>
+      <td>Mutqin di atas target</td>
+    </tr>
+    <tr>
+      <td class="text-center">A</td>
+      <td>Tercapai 86-100%</td>
+    </tr>
+    <tr>
+      <td class="text-center">B</td>
+      <td>Tercapai 66-85%</td>
+    </tr>
+    <tr>
+      <td class="text-center">C</td>
+      <td>Tercapai 50-65%</td>
+    </tr>
+    <tr>
+      <td class="text-center">D</td>
+      <td>Tercapai &lt; 50%</td>
+    </tr>
+  </tbody>
+</table>
+<p>Santri dinyatakan naik kelas jika salah satu target mutqin atau ziyadah mencapai ≥ 50% dari target yang ditentukan pada kelas tersebut.</p>
+<!-- Standar Kelulusan Tahfizh -->
+<h4>3. Standar Kelulusan Tahfizh</h4>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>ZIYADAH</th>
+      <th>MUROJAAH MUTQIN</th>
+      <th>NILAI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Khatam menghafal 30 juz</td>
+      <td>25-30 juz sekali majlis</td>
+      <td>Mumtaz</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>20-24 juz sekali majlis</td>
+      <td>Jayyid Jiddan</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>10-19 juz sekali majlis</td>
+      <td>Jayyid</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>1-9 juz sekali majlis</td>
+      <td>Maqbul</td>
+    </tr>
+  </tbody>
+</table>
+<!-- Tata Tertib Ujian Tahfizh -->
+<h4>4. Tata Tertib Ujian Tahfizh</h4>
+<ul>
+  <li>Niat lillahi ta’ala</li>
+  <li>Ujian tahfizh diadakan setiap santri yang telah mencapai 5 juz, dan kelipatannya dengan sekali duduk di depan penguji</li>
+  <li>Membawa satu mushaf al-Qur’an dan diserahkan kepada penguji</li>
+  <li>Menghormati penguji</li>
+  <li>Tidak melirik atau melihat mushaf</li>
+  <li>Berpakaian resmi dan mengenakan kaos kaki</li>
+  <li>Berwudhu sebelum menghadap ke penguji</li>
+  <li>Mempersiapkan ujian dengan sebaik-baiknya</li>
+  <li>Maju sesuai dengan hari dan tanggal yang sudah ditentukan</li>
+</ul>
+<!-- Perangkat Pembelajaran Tahfizh -->
+<h4>5. Perangkat Pembelajaran Tahfizh</h4>
+<ul>
+  <li>Mushaf Rasm Usmani</li>
+  <li>Jurnal tahfizh (buku mutaba’ah tahfizh)</li>
+  <li>Presensi kehadiran santri dan asatidz</li>
+  <li>Form laporan perkembangan santri</li>
+  <li>Buku panduan tahfizh</li>
+</ul>
+<!-- Hal-Hal yang Harus Diperhatikan oleh Musyrifah Tahfizh -->
+<h4>6. Hal-Hal yang Harus Diperhatikan oleh Musyrifah Tahfizh</h4>
+<ol>
+  <li>Dianjurkan untuk datang tepat waktu sesuai jam setoran dan apabila berhalangan hadir diharapkan melapor kepada mas’ul tahfizh serta mencari pengganti untuk menyimak santri halaqohnya</li>
+  <li>Berpakaian rapi, sopan dan menutup aurat</li>
+  <li>Dilarang membawa hp ketika jam setoran karena akan mengganggu santri</li>
+  <li>Mengisi absen Musyrifah dan santri halaqohnya pada lembaran yang telah disediakan dengan jujur dan tertib</li>
+  <li>Dianjurkan untuk mendengarkan bacaan santri dengan mushaf, sekalipun dia seorang hafizh dengan tujuan berkumpulnya pahala membaca dan mendengarkan</li>
+  <li>Mendahulukan santri yang sudah siap setoran</li>
+  <li>Membetulkan kesalahan santri, baik kesalahan tajwid ataupun salah bacaan yang lain</li>
+  <li>Tidak termasuk kesalahan, apabila santri dapat memperbaiki kesalahannya sendiri</li>
+  <li>Memberikan waktu yang cukup bagi santri untuk memperbaiki kesalahannya sendiri, tidak tergesa-gesa untuk dibetulkan</li>
+  <li>Santri tidak diperbolehkan pindah ke juz berikutnya jika juz tersebut belum lancar</li>
+  <li>Alangkah baiknya musyrifah memberikan contoh bacaan yang akan dihafalkan santri</li>
+  <li>Tidak meremehkan santri yang setoran dengan tidak mendengarkan / tidak memperhatikan bacaannya</li>
+  <li>Bersikap tegas tapi tidak berarti garang dan tidak memanjakannya</li>
+  <li>Memberikan target yang harus dihafalkan santri dan yang harus di murojaah di hari berikutnya</li>
+  <li>Mengarahkan santri dan membantu terselesaikannya target tahfizh</li>
+  <li>Menjaga akhlak seorang mu’allim</li>
+  <li>Memberikan tasyji’ (motivasi) dan nasehat kepada santri halaqohnya minimal 1 minggu sekali sekaligus evaluasi tahfizh santri, serta membantu menyelesaikan problematika santri dalam menghafal Al-Qur’an</li>
+  <li>Melaporkan pelanggaran, keluhan atau permasalahan santri yang berkenaan dengan tahfizh kepada mas’ul tahfizh</li>
+  <li>Mencatat dan menilai dengan rapi apa yang disetorkan santri di buku mutaba’ah tahfizh</li>
+  <li>Merekap pendapatan ziyadah dan murojaah santri halaqohnya setiap akhir bulan dan mengumpulkan mutaba’ah untuk dikoreksi dan dievaluasi oleh mas’ul tahfizh</li>
+  <li>Mengikuti tasmi’ dan rapat rutin setiap hari Jum’at ba’da Ashar</li>
+  <li>Mengikuti program one day one juz tilawah Al-Qur’an</li>
+</ol>
+</div>
+    </div>
+  </div>
+<!--Bagian bawah-->
+<hr>
+<div class="bagianbawah w-100 h-100 p-3 bg-success">
+  <div class="row">
+     <div class="col-md-4 col-sm-12">
+       <h3 class="mt-3">
+         Rumah SETIA
+       </h3>
+        <p class="">Pondok Pesantren Rumah SETIA adalah Lembaga Pendidikan Swasta yang memiliki sistem pendidikan integral dan terpadu.</p>
+<p class="">Diasuh oleh tenaga pendidik yang memiliki dedikasi dan komitmen tinggi terhadap pendidikan Islam.</p>
+  </div>
+  <br>
+<div class="col-md-1 col-sm-3 mt-3">
+ <p><a href="Landing.html" class="text-decoration-none text-white">Beranda</a></p>
+ <p><a href="infopsb.html" class="text-decoration-none text-white">INFO PSB</a></p>
+ <p><a href="kontak.html" class="text-decoration-none text-white">Kontak</a></p>
+ <p><a href="setiapeduli.html"class="text-decoration-none text-white">Donasi</a></p>
+</div>
+<div class="col-md-3 col-sm-12- mt-3">
+  <span><button class="btn btn-white"><a class="text-decoration-none" href="https://www.instagram.com/pptq.rumahsetia"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="black" class="bi bi-instagram" viewBox="0 0 16 16">
+    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+  </svg></a></button></span>
+  <span><button class="btn btn-white"><a class="text-decoration-none" href="http://www.youtube.com/@rumahsetia"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="black" class="bi bi-youtube" viewBox="0 0 16 16">
+    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+  </svg></a></button></span>
+  <span><button class="btn btn-white"><a class="text-decoration-none" href="https://www.facebook.com/SenyumYatimIndonesia/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="black" class="bi bi-facebook" viewBox="0 0 16 16">
+    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+  </svg></a></button></span>
+  <span><button class="btn btn-white"><a class="text-decoration-none" href="https://wa.me/+6285743106362"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="black" class="bi bi-whatsapp" viewBox="0 0 16 16">
+    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+  </svg></a></button></span>
+  <span><button class="btn btn-white"><a class="text-decoration-none" href="https://x.com/rumahsetia?t=gHBiLOdO3O7I00i2g3LVqA&s=08 "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="black" class="bi bi-twitter-x" viewBox="0 0 16 16">
+    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+  </svg></a></button></span>
+</div>
+<div class="col-md-4 col-sm-12">
+ <h3>Alamat <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 16 16">
+   <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8z"/>
+   <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+ </svg></h3>
+ <h5>Unit Putra (Wustho & Ulya)</h5>
+   <p>,<a href="https://maps.app.goo.gl/E7wXZusW4J9M41QV6" class="text-decoration-none text-white">Jl.Parikesit, Rt.04 Rw 01, Pucangan, Kartasura, Sukoharjo</a></p>
+   <h5>Unit Putri (Ulya)</h5>
+ <p><a class="text-decoration-none text-white" href="https://g.co/kgs/ttZzgFs">Jl.Papagan, No 104, Rt 02 Rw 05, Makamhaji, Kartasura, Sukoharjo.</a></p>
+ <h5>Unit Putri (Wustho)</h5>
+ <p><a class="text-decoration-none text-white" href="https://g.co/kgs/ZARVhbW">Mendungan, Gg Khoir, Rt 03, Rw 09, Pabelan, Kartasura.</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script> 
+<script>
+  document.getElementById('expandableButton').addEventListener('click', function() {
+      this.classList.toggle('expanded');
+      document.getElementById('hamburger').classList.toggle('cross');
+  });
+</script>
+ </body>
+</html>
